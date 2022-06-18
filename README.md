@@ -21,7 +21,7 @@ of a string with the following values:
 ```sh
 Wordler will try to guess QUIET
 Guess: AROSE | Feedback: XXXXY
-Guess: LINEY | Feedback: XYXGX
-Guess: MUTED | Feedback: XGYGX
+Guess: LITED | Feedback: XYYGX
+Guess: THIEF | Feedback: YXGGX
 Guess: QUIET | Feedback: GGGGG
 ```

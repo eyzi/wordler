@@ -4,6 +4,7 @@ export default class WordleGuesser {
   alphabetArray = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
   places = [];
   possibleWords = [];
+  mustHaves = [];
 
   /**
    * Creates a guesser with the possible words
@@ -85,11 +86,13 @@ export default class WordleGuesser {
 
   /**
    * Check if a word is possible by check if each letter is marked as a possible value for that index
+   * Additionally, the guess must include all the must have letters
    * @param {String} guess 
    * @returns Whether the given guess is possible
    */
   isGuessPossible(guess) {
-    return guess.split("").every((letter, index) => this.places[index].possibleValues.includes(letter));
+    return this.mustHaves.every(letter => guess.includes(letter)) &&
+      guess.split("").every((letter, index) => this.places[index].possibleValues.includes(letter));
   }
 
   /**
@@ -127,6 +130,7 @@ export default class WordleGuesser {
    * @param {Integer} index 
    */
   setCorrectLetterToIndex(letter, index) {
+    this.addMustHave(letter);
     this.places[index].setCorrectLetter(letter);
   }
 
@@ -137,6 +141,7 @@ export default class WordleGuesser {
    * @param {Integer} index 
    */
   setIncorrectLetterToIndex(letter, index) {
+    this.addMustHave(letter);
     this.places.forEach((place, placeIndex) => {
       if (index === placeIndex) place.removePossibleValue(letter);
       else place.addPossibleValue(letter);
@@ -149,5 +154,15 @@ export default class WordleGuesser {
    */
   removeIncorrectLetterFromAll(letter) {
     this.places.forEach(place => place.removePossibleValue(letter));
+  }
+
+  /**
+   * Adds a letter as a must have to further filter possible guesses
+   * @param {Character} letter 
+   */
+  addMustHave(letter) {
+    if (!this.mustHaves.includes(letter)) {
+      this.mustHaves.push(letter);
+    }
   }
 }
