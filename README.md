@@ -16,17 +16,12 @@ of a string with the following values:
 - word to match must be 5 characters long
 
 ### Example
-`yarn start sweet`
+`yarn start quiet`
 
 ```sh
-KHETS XXGYY
-CLEAT XXGXG
-SIENT GXGXG
-SWEET GGGGG
+Wordler will try to guess QUIET
+Guess: AROSE | Feedback: XXXXY
+Guess: LINEY | Feedback: XYXGX
+Guess: MUTED | Feedback: XGYGX
+Guess: QUIET | Feedback: GGGGG
 ```
-
-### Improvements
-
-A better implementation of the guesser would be to evaluate possible
-guesses and choose based on what gives the most information instead of
-randomly. 
