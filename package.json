@@ -1,0 +1,12 @@
+{
+  "name": "wordler",
+  "version": "0.0.0",
+  "description": "wordle solver js",
+  "main": "index.js",
+  "author": "Eyzi <contact@eyzi.dev>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node ."
+  }
+}
